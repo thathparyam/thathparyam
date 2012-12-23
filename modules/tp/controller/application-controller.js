@@ -1,5 +1,5 @@
 var urlUtils = require('url')
-	, serviceLocator = require('../services/service-locator')
+	, serviceLocator = require('../service/service-locator')
 	, applicationController	
 	;
 

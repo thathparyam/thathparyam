@@ -1,7 +1,7 @@
 define(['dojo/_base/declare', 'dojo/when'], function(declare, when) {
 	var view = '';
 	
-	return declare('tp.presenters.BasePresenter', [], {
+	return declare('tp.presenter.BasePresenter', [], {
 		view: {},
 		
 		model: {},

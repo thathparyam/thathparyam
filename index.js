@@ -1,6 +1,6 @@
 var connect = require('connect')
 	, app = connect()
-	, controller = require('./modules/tp/controllers/application-controller')
+	, controller = require('./modules/tp/controller/application-controller')
 	;
 
 /*
@@ -30,6 +30,7 @@ appController.init();
 // for dynamic files
 app.use(function(req, res) {
 	appController.handleRequest(req, res);
+	console.log();
 });
 
 app.listen(7070);

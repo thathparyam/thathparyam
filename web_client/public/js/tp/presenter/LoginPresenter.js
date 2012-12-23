@@ -1,7 +1,7 @@
 define(['dojo/_base/declare', './BasePresenter'], function(declare, BasePresenter) {
 	var view = '';
 	
-	return declare("tp.presenters.LoginPresenter", [BasePresenter], {
+	return declare("tp.presenter.LoginPresenter", [BasePresenter], {
 	
 		constructor: function() {},
 		

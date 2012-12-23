@@ -2,21 +2,14 @@ define([], function() {
 	return {
 		"views": {
 			"login": {
-				"viewClass": "tp/views/LoginView",
-				"presenterClass": "tp/presenters/LoginPresenter"
+				"viewClass": "tp/view/LoginView",
+				"presenterClass": "tp/presenter/LoginPresenter"
 			},
 			
 			"list": {
-				"viewClass": "tp/views/ListView",
-				"presenterClass": "tp/presenters/ListPresenter"
+				"viewClass": "tp/view/ListView",
+				"presenterClass": "tp/presenter/ListPresenter"
 			}
-		},
-		
-		"models": {
-			"patient": "tp/models/PatientModel",
-			"doctor": "tp/models/DoctorModel",
-			"insurance": "tp/models/InsuranceModel"
-		}
-		
+		}		
 	};
 });
