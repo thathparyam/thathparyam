@@ -30,7 +30,6 @@ appController.init();
 // for dynamic files
 app.use(function(req, res) {
 	appController.handleRequest(req, res);
-	console.log();
 });
 
 app.listen(7070);
