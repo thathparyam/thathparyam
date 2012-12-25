@@ -1,4 +1,5 @@
 var doctor = function () {
+	this.username = 'test-doctor';
 	this.name = "";
 	this.age = 0;
 };

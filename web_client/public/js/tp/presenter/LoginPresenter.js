@@ -1,7 +1,6 @@
-define(['dojo/_base/declare', './BasePresenter'], function(declare, BasePresenter) {
-	var view = '';
+define(['dojo/_base/declare', 'dojo/when', './BasePresenter', '../service/ModelService'], function(declare, when, BasePresenter, modelService) {
 	
-	return declare("tp.presenter.LoginPresenter", [BasePresenter], {
+	return declare([BasePresenter], {
 	
 		constructor: function() {},
 		
@@ -11,12 +10,13 @@ define(['dojo/_base/declare', './BasePresenter'], function(declare, BasePresente
 		},
 		
 		populateModel: function() {
+			var that = this;
 			console.log('LoginPresenter populateModel is called.');
 
-			// We will do an ajax call to server to get information.
-			return this.model = {
-				username: 'test-user'
-			};
+			// Ajax call to show the data retrieval from server
+			return when(modelService.getModel({ serviceName: 'doctor', serviceMethod: 'create', serviceMethodArgs: { test: 'val' } }), function (model) {
+				return that.model = model;
+			});
 		},
 		
 		populateView: function() {

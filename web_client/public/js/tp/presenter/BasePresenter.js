@@ -1,7 +1,6 @@
 define(['dojo/_base/declare', 'dojo/when'], function(declare, when) {
-	var view = '';
 	
-	return declare('tp.presenter.BasePresenter', [], {
+	return declare([], {
 		view: {},
 		
 		model: {},
@@ -30,8 +29,7 @@ define(['dojo/_base/declare', 'dojo/when'], function(declare, when) {
 		
 		populateModel: function() {
 			console.log('BasePresenter populateModel called.');
-			this.model = {};
-			return this.model;
+			return this.model = {};
 		}
 		
 	});

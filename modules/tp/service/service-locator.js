@@ -19,6 +19,6 @@ module.exports = {
 			
 		return function () {
 			return service[serviceInfo.serviceMethod](serviceInfo.serviceMethodArgs);
-		}
+		};
 	}
 };

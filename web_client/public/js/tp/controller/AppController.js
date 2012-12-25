@@ -1,7 +1,7 @@
 define(["dojo/_base/declare", "dojo/dom-construct", "dojo/dom", "../Config"], function(declare, construct, dom, config) {
 	var initialView = "login";
 	
-	return declare("tp.controller.AppController", [], {
+	return declare([], {
 		
 		init: function() {
 			console.log('AppController init called.');

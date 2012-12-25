@@ -10,8 +10,16 @@ module.exports = function () {
 		init : function () { },
 
 		handleRequest: function (req, res) {
-			service = this.getService(urlUtils.parse(req.url, true));
-			res.end(service());
+			var service = this.getService(urlUtils.parse(req.url, true))
+				, result = service();
+				;
+			
+			if ( typeof result === 'object' ) 
+				result = JSON.stringify(result);
+			else if ( typeof result !== 'string')
+				throw Error('Illegal response');
+
+			res.end(result);
 		},
 
 		getService: function (urlObj) {
@@ -23,7 +31,7 @@ module.exports = function () {
 				serviceMethodArgs: urlObj.query
 			});
 		}
-	}
+	};
 	
 };
 

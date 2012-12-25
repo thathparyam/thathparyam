@@ -1,15 +1,18 @@
-module.exports = function () {
+var patient = require('../model/patient');
 
-	return {
+module.exports = {
 
-		init : function () {
-			
-		},
+	init : function () {
 		
-		create: function (args) {
-			return 'Patient Create Service called with args: ' + args;
-		}
-	};
+	},
+	
+	create: function (args) {
+		return new patient();
+	},
 
-}();
+	read: function (args) {
+		return {};
+	}
+
+};
 

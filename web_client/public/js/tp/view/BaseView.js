@@ -1,5 +1,5 @@
 define(['dojo/_base/declare'], function(declare) {
-	return declare("tp.view.BaseView", [], {
+	return declare([], {
 		presenter: {},
 		
 		constructor: function() {

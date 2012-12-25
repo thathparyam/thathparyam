@@ -1,19 +1,18 @@
-module.exports = function () {
+var doctor = require('../model/doctor');
+
+module.exports = {
+
+	init : function () {
+		
+	},
 	
-	return {
-
-		init : function () {
-			
-		},
-		
-		create: function (args) {
-			return 'Doctor CREATE Service called with args: ' + args;
-		},
-		
-		read: function (args) {
-			return 'Doctor READ Service called with args: ' + args;
-		}
-	};
-
-}();
-
+	create: function (args) {
+		// Create a doctor instance and insert it into DB
+		return new doctor();
+	},
+	
+	read: function (args) {
+		// Read the data from DB
+		return {};
+	}
+};
