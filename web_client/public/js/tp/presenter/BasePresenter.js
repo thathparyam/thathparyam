@@ -19,7 +19,7 @@ define(['dojo/_base/declare', 'dojo/when'], function(declare, when) {
 		init: function() {
 			var that = this;
 			
-			when(this.getModelFromServer(), function() {
+			when(this.populateModel(), function() {
 				that.populateView();
 			});
 		},
@@ -28,8 +28,8 @@ define(['dojo/_base/declare', 'dojo/when'], function(declare, when) {
 			
 		},
 		
-		getModelFromServer: function() {
-			console.log('BasePresenter getModelFromServer called.');
+		populateModel: function() {
+			console.log('BasePresenter populateModel called.');
 			this.model = {};
 			return this.model;
 		}
