@@ -23,10 +23,10 @@ app.use("/", connect.static(__dirname + '/web_client/public'));
 // appController is singleton
 var appController = controller();
 
-// next ???
 // can pass arguments? if so what kind?
 appController.init();
 
+// next()  ???
 // for dynamic files
 app.use(function(req, res) {
 	appController.handleRequest(req, res);
