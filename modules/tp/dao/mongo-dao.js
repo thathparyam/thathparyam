@@ -45,9 +45,10 @@ module.exports = {
 		
 		var that = this
 			, modelModule = this._getModelModule(args.modelName)
+			, dbQuery = (args.params.query && JSON.parse(args.params.query)) || {} 
 			;
 
-		this.db.collection(modelModule.collectionName).find(JSON.parse(args.params.query), function (err, result) {
+		this.db.collection(modelModule.collectionName).find(dbQuery, function (err, result) {
 			if (err) that.onError(err);
 			appController.handleResponse(args.response, result);
 		});
