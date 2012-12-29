@@ -11,19 +11,19 @@ module.exports = {
 	
 	create: function (args) {
 		// args.params
-		// args.response
+		// args.cb
 		
 		logger.debug('[doctorservice][create] called');
 		// Create a doctor instance and insert it into DB
-		return dao.create({ modelName: 'doctor', params: args.params, response: args.response });
+		return dao.create({ modelName: 'doctor', params: args.params, cb: args.cb });
 	},
 	
 	read: function (args) {
 		// args.params
-		// args.response
+		// args.cb
 
 		logger.debug('[doctorservice][read] called');
 		// Read the data from DB
-		return dao.read({ modelName: 'doctor', params: args.params, response: args.response });
+		return dao.read({ modelName: 'doctor', params: args.params, cb: args.cb });
 	}
 };

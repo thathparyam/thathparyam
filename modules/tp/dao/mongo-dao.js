@@ -25,7 +25,7 @@ module.exports = {
 	create: function (args) {
 		// args.modelName
 		// args.params
-		// args.response
+		// args.cb
 		
 		var that = this
 			, modelModule = this._getModelModule(args.modelName)
@@ -34,14 +34,14 @@ module.exports = {
 
 		this.db.collection(modelModule.collectionName).save(model, function (err, result) {
 			if (err) that.onError(err);
-			appController.handleResponse(args.response, result);
+			args.cb(result);
 		});
 	},
 	
 	read: function (args) {
 		// args.modelName
 		// args.params
-		// args.response
+		// args.cb
 		
 		var that = this
 			, modelModule = this._getModelModule(args.modelName)
@@ -50,7 +50,7 @@ module.exports = {
 
 		this.db.collection(modelModule.collectionName).find(dbQuery, function (err, result) {
 			if (err) that.onError(err);
-			appController.handleResponse(args.response, result);
+			args.cb(result);
 		});
 	},
 	
