@@ -1,6 +1,6 @@
 var connect = require('connect')
 	, app = connect()
-	, controller = require('./modules/tp/controller/application-controller')
+	, appController = require('./modules/tp/controller/application-controller')
 	;
 
 /*
@@ -21,12 +21,12 @@ app.use("/favicon.ico", connect.static(__dirname + '/web_client/public'));
 app.use("/", connect.static(__dirname + '/web_client/public'));
 
 // appController is singleton
-var appController = controller();
+//var appController = controller();
 
+// next ???
 // can pass arguments? if so what kind?
 appController.init();
 
-// next()  ???
 // for dynamic files
 app.use(function(req, res) {
 	appController.handleRequest(req, res);

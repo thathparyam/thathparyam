@@ -8,7 +8,8 @@
   },
   "dependencies": {
 	"connect": "*",
-	"winston": "*"
+	"winston": "*",
+	"mongojs": "*"
   },
   "repository": "",
   "author": "Sudheer",
