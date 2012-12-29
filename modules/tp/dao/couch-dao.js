@@ -1,14 +1,17 @@
-var dao = require('./dao.js')
-	, dataSourceConfig = require('../config/data-source-config.js')
-	;
+var couchDao;
+
+module.exports = function () {
 	
-module.exports = Object.create(dao, {
-	create: function (model) {
-		
-	},
-	
-	read: function (query) {
-		
-	}
-});
-	
+	if (couchDao) return couchDao;
+
+	couchDao = {
+
+		init: function () {
+			// inialize db connection
+		}
+	};
+
+	return couchDao;
+
+};
+

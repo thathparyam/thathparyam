@@ -17,8 +17,8 @@ module.exports = {
 		if ( !service[serviceInfo.serviceMethod] )
 			throw Error('Illegal Service method call: ' + serviceInfo.serviceName + '[' + serviceInfo.serviceMethod + ']');
 			
-		return function (res) {
-			return service[serviceInfo.serviceMethod]({ params: serviceInfo.serviceMethodArgs, response: res });
+		return function () {
+			return service[serviceInfo.serviceMethod](serviceInfo.serviceMethodArgs);
 		};
 	}
 };

@@ -1,14 +1,14 @@
 var winston = require('winston')
 	, allLogsConfig = {
 		filename: 'logs/app.log',
-		level: 'info',
+		level: 'error',
 		handleExceptions: true
 	}
 	;
 
 
 module.exports = {
-	init: function () {
+	initializeLogger: function () {
 		
 		global.logger = new winston.Logger({
 			transports: [

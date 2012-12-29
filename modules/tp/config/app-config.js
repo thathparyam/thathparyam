@@ -1,5 +1,5 @@
-module.exports = {
-		
+var appConfig = {
 	db: 'mongo'
-		
 };
+
+module.exports = appConfig;

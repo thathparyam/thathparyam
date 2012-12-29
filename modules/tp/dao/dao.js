@@ -1,15 +1,17 @@
-module.exports = {
-	create: function () {
-		
-	},
+var dao;
+
+module.exports = function () {
 	
-	read: function () {
-		
-	},
-	
-	getDao: function (databaseName) {
-		var dbName = databaseName || appConfig.db;
-		
-		return require('./' + dbName + '-dao');
-	}
+	if (dao) return dao;
+
+	dao = {
+		init: function () {
+			// call init of particular Dao
+			// mongoDao.init
+		}		
+	};
+
+	return dao;
+
 };
+

@@ -1,6 +1,4 @@
-var patient = require('../model/patient')
-	, dao = require('../config/dao-config').getDao()
-	;
+var patient = require('../model/patient');
 
 module.exports = {
 
@@ -10,12 +8,12 @@ module.exports = {
 	
 	create: function (args) {
 		logger.debug('[patientservice][create] called', args);
-		return dao.create(new patient());
+		return new patient();
 	},
 
 	read: function (args) {
 		logger.debug('[patientservice][read] called', args);
-		return dao.read(args);
+		return {};
 	}
 
 };

@@ -10,30 +10,20 @@ define(['dojo/_base/declare', 'dojo/when', './BasePresenter', '../service/ModelS
 		},
 		
 		populateModel: function() {
-			var that = this
-				, serverQuery = JSON.stringify({ username: 'test-doctor' })
-				;
+			var that = this;
 			console.log('LoginPresenter populateModel is called.');
 
 			// Ajax call to show the data retrieval from server
-			return when( modelService.getModel({
-					serviceName: 'doctor', 
-					serviceMethod: 'read', 
-					serviceMethodArgs: { query: serverQuery }
-				}),
-				
-				function (model) {
-					return that.model = model;
+			return when(modelService.getModel({ serviceName: 'doctor', serviceMethod: 'create', serviceMethodArgs: { test: 'val' } }), function (model) {
+				return that.model = model;
 			});
 		},
 		
 		populateView: function() {
-			var myModel = dojo.isArray(this.model) ? this.model[0] : this.model;
-				
 			console.log('LoginPresenter populateView called');
 			
 			// Testing the view's reaction
-			this.view.setUserName(myModel.username);
+			this.view.setUserName(this.model.username);
 
 			return this.view;
 		}

@@ -1,7 +1,4 @@
-var doctor = require('../model/doctor')
-	, dao = require('../dao/dao').getDao()
-	;
-
+var doctor = require('../model/doctor');
 
 module.exports = {
 
@@ -10,20 +7,14 @@ module.exports = {
 	},
 	
 	create: function (args) {
-		// args.params
-		// args.response
-		
-		logger.debug('[doctorservice][create] called');
+		logger.debug('[doctorservice][create] called', args);
 		// Create a doctor instance and insert it into DB
-		return dao.create({ modelName: 'doctor', params: args.params, response: args.response });
+		return new doctor();
 	},
 	
 	read: function (args) {
-		// args.params
-		// args.response
-
-		logger.debug('[doctorservice][read] called');
+		logger.debug('[doctorservice][read] called', args);
 		// Read the data from DB
-		return dao.read({ modelName: 'doctor', params: args.params, response: args.response });
+		return {};
 	}
 };
