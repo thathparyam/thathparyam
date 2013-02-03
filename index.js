@@ -1,13 +1,8 @@
 var connect = require('connect')
 	, app = connect()
 	, appController = require('./modules/tp/controller/application-controller')
+	, fs = require('fs')
 	;
-
-/*
-	1: console.log(connect.createServer());	
-	2: console.log(app);
-	1 & 2 are same
-*/	
 
 /*
 	for static files
@@ -18,17 +13,40 @@ var connect = require('connect')
 
 app.use("/favicon.ico", connect.static(__dirname + '/web_client/public'));
 
+app.use("/index.html", connect.static(__dirname + '/web_client/public'));
+
 app.use("/", connect.static(__dirname + '/web_client/public'));
 
-// appController is singleton
-//var appController = controller();
+//app.use(connect.session({ secret: 'keyboard cat', key: 'sid', cookie: { secure: true }}));
 
 // next ???
 // can pass arguments? if so what kind?
 appController.init();
 
+app.use("/layout", function (req, res) {
+	// Only Authenticated users will see Layout
+
+	// Call Authenticate function
+	var isValidUser = true;
+
+	if ( !isValidUser ) {
+		res.end();
+		return;
+	}
+
+	// On Authentication success show up the Layout
+	fs.readFile('web_client/public/layout.html', function (err, data) {
+		res.writeHead(200, {
+			'Content-Type': 'text/html',
+			'Content-length': data.length
+		});
+		res.write(data);
+		res.end();
+	});
+});
+
 // for dynamic files
-app.use(function(req, res) {
+app.use(function (req, res) {
 	appController.handleRequest(req, res);
 });
 

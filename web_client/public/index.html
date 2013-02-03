@@ -1,5 +1,11 @@
-<body>
-	<script src="/js/dojo/dojo.js" data-dojo-config="async: true" ></script>
-	<script src="/js/tp/_base.js" ></script>
-	<div id='container'></div>
+<head>
+<link rel="stylesheet" href="/js/dijit/themes/claro/claro.css" ></link>
+	<script src="/js/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true" ></script>
+</head>
+<body  id='container' class='claro' >
+	<form method="post" action="/layout">
+		<p>User: <input type="text" name="user" /></p>
+		<p>Password: <input type="password" name="pwd" /></p>
+		<input type='submit' value='Submit'/>
+	</form>
 </body>
